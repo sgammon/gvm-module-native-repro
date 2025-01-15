@@ -8,6 +8,7 @@ public class Entry {
      System.out.println("Repro start");
      String pattern = (args.length > 0) ? args[0] : "********";
      invokeStrdup(pattern);
+     System.out.println("Repro finished");
   }
 
   private static void invokeStrdup(String pattern) throws Throwable {

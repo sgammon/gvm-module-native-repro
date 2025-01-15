@@ -1,4 +1,4 @@
-all: clean target/classes target/repro
+all: clean target/classes target/repro jtest test
 
 clean:
 	rm -fr ./target
@@ -10,5 +10,11 @@ target/classes:
 	jar --file=target/classes.jar --describe-module
 
 target/repro:
-	native-image --module-path target/classes.jar -m example.repro --enable-native-access=example.repro -o target/repro
+	native-image --module-path target/classes.jar -m example.repro --enable-native-access=example.repro -o target/repro -H:+UnlockExperimentalVMOptions -H:+ForeignAPISupport
+
+jtest:
+	java --module-path target/classes.jar --enable-native-access=example.repro -m example.repro/example.Entry
+
+test:
+	./target/repro
 
