@@ -1,4 +1,4 @@
-package example;
+package example.ffm;
 
 import java.lang.foreign.FunctionDescriptor;
 import org.graalvm.nativeimage.hosted.Feature;

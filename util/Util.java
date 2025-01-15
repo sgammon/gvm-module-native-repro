@@ -1,17 +1,10 @@
-package example;
+package example.ffm;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
 
-public class Entry {
-  public static void main(String[] args) throws Throwable {
-     System.out.println("Repro start");
-     String pattern = (args.length > 0) ? args[0] : "********";
-     invokeStrdup(pattern);
-     System.out.println("Repro finished");
-  }
-
-  private static void invokeStrdup(String pattern) throws Throwable {
+public class Util {
+  public static void invokeStrdup(String pattern) throws Throwable {
         try (Arena arena = Arena.ofConfined()) {
 
             // Allocate off-heap memory and
