@@ -15,7 +15,7 @@ target/classes:
 	jar --file=target/classes.jar --describe-module
 
 target/repro:
-	native-image --module-path target/classes -m example.repro/example.Entry --enable-native-access=example.repro -o target/repro --features=example.NativeFfmFeature -H:+UnlockExperimentalVMOptions -H:+ForeignAPISupport
+	native-image --module-path target/classes -m example.repro/example.Entry --enable-native-access=example.repro --initialize-at-build-time= -o target/repro --features=example.NativeFfmFeature -H:+UnlockExperimentalVMOptions -H:+ForeignAPISupport
 
 jtest:
 	java --module-path target/classes.jar --enable-native-access=example.repro -m example.repro/example.Entry
