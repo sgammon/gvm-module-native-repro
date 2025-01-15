@@ -23,3 +23,5 @@ jtest:
 test:
 	./target/repro
 
+.PHONY: all clean libs jtest test
+
